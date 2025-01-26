@@ -3,6 +3,6 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /target/lifecare-0.0.1-SNAPSHOT.jar lifecare.jar
+COPY target/lifecare-0.0.1-SNAPSHOT.jar lifecare.jar
 EXPOSE 8080
-ENTRYPOINT [ "java","lifecare.jar" ]
+ENTRYPOINT [ "java","-jar","lifecare.jar" ]
